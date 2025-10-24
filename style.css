@@ -1,0 +1,107 @@
+/* Basic Reset & Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #ffffff;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #2c3e50;
+}
+
+/* Main Container Layout */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 2rem;
+    padding: 0 2rem;
+    height: calc(100vh - 150px); /* Full height minus header */
+}
+
+/* Editor and Preview Panes */
+#markdown-input, #html-output {
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    overflow-y: auto; /* Add scrollbar if content overflows */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+#markdown-input {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+    resize: none; /* Disable textarea resizing */
+    color: #444;
+}
+
+#markdown-input:focus {
+    outline: 2px solid #3498db;
+    border-color: transparent;
+}
+
+/* Styles for the rendered HTML in the output pane */
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+    margin-top: 1.2em;
+    margin-bottom: 0.6em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.3em;
+}
+.markdown-body p {
+    margin-bottom: 1em;
+}
+.markdown-body ul, .markdown-body ol {
+    padding-left: 2em;
+    margin-bottom: 1em;
+}
+.markdown-body code {
+    background-color: #ecf0f1;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: 'Roboto Mono', monospace;
+}
+.markdown-body pre {
+    background-color: #2c3e50;
+    color: #f8f8f2;
+    padding: 1em;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+.markdown-body pre code {
+    background-color: transparent;
+    padding: 0;
+}
+.markdown-body blockquote {
+    border-left: 4px solid #bdc3c7;
+    padding-left: 1em;
+    color: #7f8c8d;
+    margin-left: 0;
+    margin-bottom: 1em;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 800px) {
+    .container {
+        grid-template-columns: 1fr; /* Stack columns vertically */
+        height: auto;
+    }
+    #markdown-input {
+        min-height: 300px;
+    }
+}
